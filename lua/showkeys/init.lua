@@ -20,7 +20,7 @@ M.open = function()
   state.on_key = vim.on_key(function(_, char)
     if not state.win then
       state.win = api.nvim_open_win(state.buf, false, state.config.winopts)
-      vim.wo[state.win].winhl = "FloatBorder:Comment,Normalfloat:Normal"
+      vim.wo[state.win].winhl = state.config.winhl
     end
 
     utils.parse_key(char)

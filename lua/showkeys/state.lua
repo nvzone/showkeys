@@ -15,6 +15,8 @@ local M = {
       col = 0,
     },
 
+    winhl = "FloatBorder:Comment,Normalfloat:Normal",
+
     timeout = 3, -- in secs
     maxkeys = 3,
     show_count = false,
