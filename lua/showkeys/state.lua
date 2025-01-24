@@ -13,6 +13,7 @@ local M = {
       height = 1,
       row = 1,
       col = 0,
+      zindex = 100,
     },
 
     winhl = "FloatBorder:Comment,Normal:Normal",
