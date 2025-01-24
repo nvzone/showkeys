@@ -6,7 +6,7 @@ local M = {
   config = {
     -- :h nvim_open_win params
     winopts = {
-      focusable = false,
+      -- focusable = false,
       relative = "editor",
       style = "minimal",
       border = "single",
@@ -15,7 +15,7 @@ local M = {
       col = 0,
     },
 
-    winhl = "FloatBorder:Comment,Normalfloat:Normal",
+    winhl = "FloatBorder:Comment,Normal:Normal",
 
     timeout = 3, -- in secs
     maxkeys = 3,

@@ -20,22 +20,13 @@ M.open = function()
   state.on_key = vim.on_key(function(_, char)
     if not state.win then
       state.win = api.nvim_open_win(state.buf, false, state.config.winopts)
-      vim.wo[state.win].winhl = state.config.winhl
+      api.nvim_set_option_value("winhl", state.config.winhl, { win = state.win })
     end
 
     utils.parse_key(char)
 
     state.timer:stop()
-    state.timer:start(
-      state.config.timeout * 1000,
-      0,
-      vim.schedule_wrap(function()
-        state.keys = {}
-        local tmp = state.win
-        state.win = nil
-        api.nvim_win_close(tmp, true)
-      end)
-    )
+    state.timer:start(state.config.timeout * 1000, 0, vim.schedule_wrap(utils.clear_and_close))
   end)
 
   api.nvim_set_hl(0, "SkInactive", { default = true, link = "Visual" })
