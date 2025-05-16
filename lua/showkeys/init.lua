@@ -71,7 +71,7 @@ M.close = function()
   state.keys = {}
   state.w = 1
   state.extmark_id = nil
-  vim.cmd("bd" .. state.buf)
+  vim.cmd("silent! bd" .. state.buf)
   vim.on_key(nil, state.on_key)
   state.visible = false
   state.win = nil
